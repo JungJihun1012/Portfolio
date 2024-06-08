@@ -12,6 +12,7 @@ export const ProtFolio = () => {
 
 export const Container  = styled.div``;
 export const Jjh = styled.div`
+    color: lightgray;
     font-size: 25px;
     font-weight: bold;
 `;

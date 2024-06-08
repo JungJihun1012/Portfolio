@@ -9,9 +9,6 @@
 
 body,
 html {
-  background-image: url("../public/Images/Background.jpg");
-  background-size: 920px;
-  background-repeat: no-repeat;
   width: 100%;
-  height: 500px;
+  height: 150vh;
 }
