@@ -26,7 +26,7 @@ export const Container = styled.div`
     gap: 25px;
 `;
 export const Int = styled.div`
-    color: lightgray;
+    color: #fff;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;

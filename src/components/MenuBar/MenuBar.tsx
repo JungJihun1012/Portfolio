@@ -3,6 +3,7 @@ import { ProtFolio } from "./Protfolio";
 import { Introduction } from "./Introduction";
 import BkImage from "./BkImage";
 import React, { useEffect, useState } from "react";
+import { MiddleText } from "../MiddleText/MiddleText";
 
 interface ContentProps {
     scrolled: boolean;
@@ -34,6 +35,7 @@ export const MenuBar: React.FC = () => {
                     <ProtFolio />
                     <Introduction />
                 </Content>
+                <MiddleText />
             </BkImage>
         </Container>
     );
@@ -57,6 +59,6 @@ export const Content = styled.div<ContentProps>`
         props.scrolled &&
         css`
             background-color: aliceblue;
-            color: #333;
+            color: black;
     `};
 `;
