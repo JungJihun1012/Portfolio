@@ -14,8 +14,8 @@ export const ExampleText = () => {
 export const InnerText = styled.div`
     padding-top: 23px;
     line-height: 1.5em;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
-    color: #bebdbb;
+    color: #fff;
 `;
 export const Container = styled.div``;
