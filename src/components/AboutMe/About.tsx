@@ -1,9 +1,12 @@
 import styled from "styled-components"
 
 export const About = () => {
+
+    const location = document.querySelector("#About").offsetTop;
+
     return(
         <Container>
-            <Aboutme>
+            <Aboutme id="About">
                 ABOUT ME
             </Aboutme>
         </Container>
