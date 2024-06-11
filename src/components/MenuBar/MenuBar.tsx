@@ -1,16 +1,17 @@
 import styled, { css } from "styled-components";
-import { ProtFolio } from "./Protfolio";
 import { Introduction } from "./Introduction";
 import BkImage from "./BkImage";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MiddleText } from "../MiddleText/MiddleText";
 
 interface InnerProps {
     scrolled: boolean;
+    // scrollRef: number;
 }
 
 export const MenuBar: React.FC = () => {
     const [scrolled, setScrolled] = useState(false);
+    const scrollRef = useRef([]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -33,8 +34,7 @@ export const MenuBar: React.FC = () => {
             <BkImage>
                 <Inner scrolled={scrolled}>
                     <Content>
-                        <ProtFolio />
-                        <Introduction />
+                        <Introduction scrollRef={scrollRef}/>
                     </Content>
                 </Inner>
                 <MiddleText />
@@ -71,6 +71,5 @@ export const Content = styled.div`
     padding: 0px 20px;
     line-height: 4.5em;
     display: flex;
-    justify-content: space-between;
     color: inherit;
 `;
