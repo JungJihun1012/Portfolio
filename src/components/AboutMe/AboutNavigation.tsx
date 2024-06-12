@@ -1,15 +1,40 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faUser} from "@fortawesome/free-solid-svg-icons";
-import { Link, useLocation } from "react-router-dom";
+import {faCalendar, faEnvelope, faLocationDot, faPencil, faPhone, faUser} from "@fortawesome/free-solid-svg-icons";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components"
+import { UserName } from "./UserName";
+import React from "react";
 
-export const AboutNavigation = () => {
+export const AboutNavigation: React.FC = () => {
     const location = useLocation();
     return (
         <Container>
-            <Link to={"/"}>
-                <Icon icon={faUser} $isSelected={location.pathname === "/"} />
-            </Link>
+            <Icon
+            icon={faUser}
+            $isSelected={location.pathname === "/"}
+            >
+                <UserName />
+            </Icon>
+            <Icon
+            icon={faCalendar}
+            $isSelected={location.pathname.includes("/Calendar")}
+            />
+            <Icon
+            icon={faLocationDot}
+            $isSelected={location.pathname.includes("/LocationDot")}
+            />
+            <Icon
+            icon={faPhone}
+            $isSelected={location.pathname.includes("/Phone")}
+            />
+            <Icon
+            icon={faEnvelope}
+            $isSelected={location.pathname.includes("/Envelope")}
+            />
+            <Icon
+            icon={faPencil}
+            $isSelected={location.pathname.includes("/Pencil")}
+            />
         </Container>
     )
 }
