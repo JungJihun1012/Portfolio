@@ -10,7 +10,7 @@ const Nav = [
 ];
 
 interface IntroductionProps {
-    scrollRef: React.RefObject<HTMLDivElement[]>;
+    scrollRef: React.RefObject<(HTMLDivElement | null)[]>;
 }
 
 export const Introduction: React.FC<IntroductionProps> = ({ scrollRef }) => {
@@ -18,8 +18,8 @@ export const Introduction: React.FC<IntroductionProps> = ({ scrollRef }) => {
     const navRef = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
-        if (navIndex !== null) {
-            scrollRef.current?.[navIndex]?.scrollIntoView({ behavior: 'smooth' });
+        if (navIndex !== null && scrollRef.current) {
+            scrollRef.current[navIndex]?.scrollIntoView({ behavior: 'smooth' });
             setNavIndex(null);
         }
         console.log(navIndex);
@@ -28,20 +28,25 @@ export const Introduction: React.FC<IntroductionProps> = ({ scrollRef }) => {
     useEffect(() => {
         const changeNavBtnStyle = () => {
             scrollRef.current?.forEach((ref, idx) => {
-                if (ref?.offsetTop && ref.offsetTop - 180 < window.scrollY) {
+                if (ref && ref.offsetTop - 180 < window.scrollY) {
                     navRef.current.forEach(ref => {
-                        if (ref) ref.className = ref.className.replace(' active', '');
+                        if (ref) ref.classList.remove(' active');
                     });
                     if (navRef.current[idx]) {
-                        navRef.current[idx]!.className += ' active';
+                        navRef.current[idx]!.classList.add("active");
                     }
                 }
             });
         };
-        window.addEventListener("scroll", changeNavBtnStyle);
+
+        const handleScroll = () => {
+            window.requestAnimationFrame(changeNavBtnStyle);
+        }
+
+        window.addEventListener("scroll", handleScroll);
 
         return () => {
-            window.removeEventListener("scroll", changeNavBtnStyle);
+            window.removeEventListener("scroll", handleScroll);
         };
     }, [scrollRef]);
 

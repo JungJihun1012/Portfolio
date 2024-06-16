@@ -6,11 +6,10 @@ import { MiddleText } from "../MiddleText/MiddleText";
 
 interface InnerProps {
     scrolled: boolean;
-    // scrollRef: number;
 }
 
 export const MenuBar: React.FC = () => {
-    const [scrolled, setScrolled] = useState(false);
+    const [scrolled, setScrolled] = useState(false)
     const scrollRef = useRef([]);
 
     useEffect(() => {
