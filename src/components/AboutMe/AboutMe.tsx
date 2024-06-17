@@ -16,5 +16,7 @@ export const AboutMe: React.FC = () => {
         </Container>
     )
 }
-export const Container = styled.div``;
+export const Container = styled.div`
+    padding-bottom: 4em;
+`;
 export const Content = styled.div``;
