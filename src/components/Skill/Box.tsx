@@ -1,10 +1,17 @@
+import { ReactNode } from "react";
 import styled from "styled-components";
 
-const Box = () => {
+interface BoxProps {
+    children: ReactNode;
+}
+
+const Box = ({children}: BoxProps) => {
 
     return(
         <Container>
-            <MiddleContent />
+            <MiddleContent>
+                {children}
+            </MiddleContent>
         </Container>
     )
 }
