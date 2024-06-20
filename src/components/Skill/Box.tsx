@@ -21,6 +21,6 @@ export const MiddleContent = styled.div`
     background-color: #fff;
     border-radius: 10px;
     width: 230px;
-    height: 50vh;
+    height: 35vh;
 `;
 export default Box;
