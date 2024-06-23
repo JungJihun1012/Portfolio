@@ -22,5 +22,11 @@ export const MiddleContent = styled.div`
     border-radius: 10px;
     width: 230px;
     height: 35vh;
+    box-shadow: 1rem 1rem 1rem 0 rgba(68, 68, 68, .2);
+    -webkit-box-shadow: 1rem 1rem 1rem 0 rgba(68, 68, 68, .2);
+    &:hover {
+        transform: translateY(10px);
+        transition: .5s;
+    }
 `;
 export default Box;

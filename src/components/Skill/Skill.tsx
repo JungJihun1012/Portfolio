@@ -12,6 +12,6 @@ export const Skill = () => {
 }
 
 export const Container = styled.div`
-    height: 80vh;
+    height: 60vh;
     background-color: #f7b647;
 `;

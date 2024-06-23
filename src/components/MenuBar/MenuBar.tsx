@@ -52,7 +52,7 @@ export const Inner = styled.div<InnerProps>`
     ${(props) =>
         props.scrolled &&
         css`
-            background-color: #fff;
+            background-color: white;
             z-index: 1;
             color: black;
             border-bottom: 1px solid lightgray;

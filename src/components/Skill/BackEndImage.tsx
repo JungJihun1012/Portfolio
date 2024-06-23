@@ -4,6 +4,7 @@ export const BackEndImage = () => {
     return(
         <Container>
             <Node />
+            <Oracle />
         </Container>
     )
 }
@@ -16,5 +17,12 @@ export const Node = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     width: 160px;
+    height: 100px;
+`;
+export const Oracle = styled.div`
+    background-image: url("Images/Oracle.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 170px;
     height: 100px;
 `;
