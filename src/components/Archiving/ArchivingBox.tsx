@@ -1,11 +1,13 @@
 import styled from "styled-components"
 import { GithubImage } from "./GithubImage";
+import { GithubAddress } from "./GithubAddress";
 
 export const ArchivingBox = () => {
     return(
         <Container>
             <Box>
                 <GithubImage />
+                <GithubAddress />
             </Box>
         </Container>
     )
