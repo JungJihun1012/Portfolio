@@ -1,6 +1,8 @@
 import styled from "styled-components"
 import { GithubImage } from "./GithubImage";
 import { GithubAddress } from "./GithubAddress";
+import { SourceCode } from "./SourceCode";
+import { SectionText } from "./SectionText";
 
 export const ArchivingBox = () => {
     return(
@@ -8,6 +10,8 @@ export const ArchivingBox = () => {
             <Box>
                 <GithubImage />
                 <GithubAddress />
+                <SourceCode />
+                <SectionText />
             </Box>
         </Container>
     )
