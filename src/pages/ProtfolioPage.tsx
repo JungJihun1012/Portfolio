@@ -3,6 +3,7 @@ import { MenuBar } from "../components/MenuBar/MenuBar";
 import { AboutMe } from "../components/AboutMe/AboutMe";
 import { Skill } from "../components/Skill/Skill";
 import { Archiving } from "../components/Archiving/Archiving";
+import { PortFolio } from "../components/PortFolio/PortFolio";
 
 const ProtfolioPage = () => {
     return(
@@ -11,6 +12,7 @@ const ProtfolioPage = () => {
             <AboutMe />
             <Skill />
             <Archiving />
+            <PortFolio />
         </Container>
     )
 }
