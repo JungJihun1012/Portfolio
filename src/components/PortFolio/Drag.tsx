@@ -1,45 +1,26 @@
-import React, { useCallback, useState } from "react";
 import styled from "styled-components"
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export const Drag = () => {
-
-    const [dragging, setDragging] = useState(false);
-
-
-    const handleBeforChange = useCallback(() => {
-        setDragging(true);
-    }, [setDragging]);
-
-    const handleAfterChange = useCallback(() => {
-        setDragging(false);
-    }, [setDragging]);
-
-    const onClickCard = useCallback((path) => (e: React.SyntheticEvent) => {
-        if(dragging) {
-            e.stopPropagation();
-            return;
-        }
-        if(path.includes('https')) {
-            window.open(path, "_blank");
-        } else {
-            router.push(path);
-        }
-    }, [dragging]);
-
-    const setting = {
-        draggable: true,
-        beforeChange: handleBeforChange,
-        afterChange: handleAfterChange,
-    };
-
     return(
-        <Container>
-            <CustomCarousel {...setting}>
-
-            </CustomCarousel>
-        </Container>
+            <Swiper
+                spaceBetween={50}
+                slidesPerView={3}
+                scrollbar={{draggable: true}}
+                navigation
+                pagination={{clickable: true}}
+                breakpoints={{
+                    768: {
+                        slidesPerView: 7,
+                    },
+                }}
+            >
+                <SwiperSlide>slide 1</SwiperSlide>
+                <SwiperSlide>slide 2</SwiperSlide>
+                <SwiperSlide>slide 3</SwiperSlide>
+                <SwiperSlide>slide 4</SwiperSlide>
+            </Swiper>
     )
 }
 
 export const Container = styled.div``;
-export const CustomCarousel = styled.div``;
