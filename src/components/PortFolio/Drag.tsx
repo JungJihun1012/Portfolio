@@ -1,8 +1,9 @@
-import 'swiper/swiper-bundle.css';
+import 'swiper/swiper.min.css';
 
 import { ReactElement, useEffect, useRef, useState } from "react"
-import SwiperCore, { Navigation, Scrollbar } from 'swiper';
+import SwiperCore, {Navigation, Scrollbar} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
+import styled from 'styled-components';
 
 interface MainSliderProps {
     cardList: ReactElement[];
@@ -10,13 +11,13 @@ interface MainSliderProps {
 }
 
 export const Drag = (props: MainSliderProps) => {
-    const {cardList, slidesPerView } = props;
+    const { slidesPerView } = props;
 
     SwiperCore.use([Navigation, Scrollbar]);
 
     const prevRef = useRef<HTMLButtonElement>(null);
     const nextRef = useRef<HTMLButtonElement>(null);
-    const [swiperSetting, setSwiperSetting] = useState<Swiper | null>(null);    
+    const [swiperSetting, setSwiperSetting] = useState<InstanceType<typeof Swiper> | null>(null);
 
     useEffect(() => {
         if(!swiperSetting) {
@@ -39,10 +40,11 @@ export const Drag = (props: MainSliderProps) => {
                 },
             });
         }
-    }, [swiperSetting, setSwiperSetting]);
+    }, [swiperSetting, slidesPerView]);
     return(
-        <>
-
-        </>
+        <StyledRoot>
+        </StyledRoot>
     )
 }
+
+export const StyledRoot = styled.div``;
