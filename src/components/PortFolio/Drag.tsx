@@ -1,5 +1,4 @@
 import 'swiper/swiper.min.css';
-
 import { ReactElement, useEffect, useRef, useState } from "react";
 import SwiperCore, { Navigation, Scrollbar, SwiperOptions } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
