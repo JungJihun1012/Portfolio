@@ -36,8 +36,8 @@ importers:
         specifier: ^6.1.11
         version: 6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       swiper:
-        specifier: ^6.8.4
-        version: 6.8.4
+        specifier: ^11.1.4
+        version: 11.1.4
     devDependencies:
       '@types/react':
         specifier: ^18.2.66
@@ -1483,7 +1483,7 @@ snapshots:
 
   '@types/swiper@6.0.0':
     dependencies:
-      swiper: 11.1.4
+      swiper: 6.8.4
 
   '@typescript-eslint/eslint-plugin@7.12.0(@typescript-eslint/parser@7.12.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)':
     dependencies:

@@ -1,6 +1,8 @@
-import 'swiper/swiper.min.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
 import { ReactElement, useEffect, useRef, useState } from "react";
-import SwiperCore, { Navigation, Scrollbar, SwiperOptions } from 'swiper';
+import { Navigation, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styled from 'styled-components';
 
@@ -12,24 +14,23 @@ interface MainSliderProps {
 export const Drag = (props: MainSliderProps) => {
     const { slidesPerView, cardList } = props;
 
-    SwiperCore.use([Navigation, Scrollbar]);
-
     const prevRef = useRef<HTMLButtonElement>(null);
     const nextRef = useRef<HTMLButtonElement>(null);
-    const [swiperSetting, setSwiperSetting] = useState<SwiperOptions | null>(null);
+    const [swiperSetting, setSwiperSetting] = useState<any | null>(null);
 
     useEffect(() => {
-        if (!swiperSetting) {
-            setSwiperSetting({
+        if (prevRef.current && nextRef.current) {
+            const settings: any = {
+                modules: [Navigation, Scrollbar],
                 spaceBetween: 24,
                 navigation: {
                     prevEl: prevRef.current,
                     nextEl: nextRef.current,
                 },
-                scrollbar: { draggable: true, el: null },
+                scrollbar: { draggable: true, el: '.swiper-scrollbar' },
                 slidesPerView,
                 on: {
-                    init: (swiper: SwiperCore) => {
+                    init: (swiper: any) => {
                         if (typeof swiper.params.navigation !== 'boolean') {
                             if (swiper.params.navigation) {
                                 swiper.params.navigation.prevEl = prevRef.current;
@@ -39,9 +40,10 @@ export const Drag = (props: MainSliderProps) => {
                         swiper.navigation.update();
                     }
                 },
-            });
+            };
+            setSwiperSetting(settings);
         }
-    }, [swiperSetting, slidesPerView]);
+    }, [slidesPerView]);
 
     return (
         <StyledRoot>
@@ -56,6 +58,7 @@ export const Drag = (props: MainSliderProps) => {
                             {card}
                         </SwiperSlide>
                     ))}
+                    <div className="swiper-scrollbar"></div>
                 </Swiper>
             )}
         </StyledRoot>
@@ -72,5 +75,9 @@ export const StyledRoot = styled.div`
     .swiper-container {
         width: 100%;
         height: 100%;
+    }
+    .swiper-scrollbar {
+        height: 5px;
+        background: #000;
     }
 `;

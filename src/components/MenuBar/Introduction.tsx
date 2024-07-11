@@ -11,7 +11,7 @@ const Nav = [
 
 interface IntroductionProps {
     scrollRef: React.RefObject<(HTMLDivElement | null)[]>;
-}
+};
 
 export const Introduction: React.FC<IntroductionProps> = ({ scrollRef }) => {
     const [navIndex, setNavIndex] = useState<number | null>(null);
@@ -19,7 +19,7 @@ export const Introduction: React.FC<IntroductionProps> = ({ scrollRef }) => {
 
     useEffect(() => {
         if (navIndex !== null && scrollRef.current) {
-            scrollRef.current[navIndex]?.scrollIntoView({ behavior: 'smooth' });
+            scrollRef.current[navIndex]?.scrollIntoView({ behavior: 'smooth', block: "end", inline: "nearest" });
             setNavIndex(null);
         }
         console.log(navIndex);

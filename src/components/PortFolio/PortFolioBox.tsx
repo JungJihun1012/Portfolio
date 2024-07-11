@@ -1,17 +1,17 @@
 import styled from "styled-components"
-import { Drag} from "./Drag";
+// import { Drag} from "./Drag";
 // import { SwiperSlie } from "./SwiperSlide";
 
 export const PortFolioBox = () => {
-    const cardList = [
-        <div key="1">Card 1</div>,
-        <div key="2">Card 1</div>,
-        <div key="3">Card 1</div>
-    ];
+    // const cardList = [
+    //     <div key="1">Card 1</div>,
+    //     <div key="2">Card 1</div>,
+    //     <div key="3">Card 1</div>
+    // ];
     return(
         <Container>
             <PortBox>
-                <Drag cardList={cardList} slidesPerView={3}/>
+                {/* <Drag cardList={cardList} slidesPerView={3}/> */}
             </PortBox>
         </Container>
     )
