@@ -2,7 +2,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import { ReactElement, useEffect, useRef, useState } from "react";
-import { Navigation, Scrollbar } from 'swiper';
+import { Navigation, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styled from 'styled-components';
 

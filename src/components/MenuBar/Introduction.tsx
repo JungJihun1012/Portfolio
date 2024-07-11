@@ -19,7 +19,7 @@ export const Introduction: React.FC<IntroductionProps> = ({ scrollRef }) => {
 
     useEffect(() => {
         if (navIndex !== null && scrollRef.current) {
-            scrollRef.current[navIndex]?.scrollIntoView({ behavior: 'smooth', block: "end", inline: "nearest" });
+            scrollRef.current[navIndex]?.scrollIntoView({ behavior: 'smooth' });
             setNavIndex(null);
         }
         console.log(navIndex);
