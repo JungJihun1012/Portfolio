@@ -1,4 +1,5 @@
 import styled from "styled-components"
+// import { Drag } from "./Drag";
 // import { SwiperSlie } from "./SwiperSlide";
 
 export const PortFolioBox = () => {
@@ -6,7 +7,7 @@ export const PortFolioBox = () => {
     return(
         <Container>
             <PortBox>
-                
+                {/* <Drag /> */}
             </PortBox>
         </Container>
     )
