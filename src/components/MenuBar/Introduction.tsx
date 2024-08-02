@@ -9,10 +9,6 @@ const Nav = [
     { idx: 4, name: "Career" },
 ];
 
-interface IntroductionProps {
-    scrollRef: React.RefObject<(HTMLDivElement | null)[]>;
-};
-
 export const Introduction: React.FC<IntroductionProps> = ({ scrollRef }) => {
     const [navIndex, setNavIndex] = useState<number | null>(null);
     const navRef = useRef<(HTMLDivElement | null)[]>([]);

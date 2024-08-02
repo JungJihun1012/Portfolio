@@ -4,10 +4,6 @@ import BkImage from "./BkImage";
 import React, { useEffect, useRef, useState } from "react";
 import { MiddleText } from "../MiddleText/MiddleText";
 
-interface InnerProps {
-    scrolled: boolean;
-}
-
 export const MenuBar: React.FC = () => {
     const [scrolled, setScrolled] = useState(false)
     const scrollRef = useRef([]);

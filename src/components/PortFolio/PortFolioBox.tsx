@@ -1,13 +1,12 @@
 import styled from "styled-components"
-// import { Drag } from "./Drag";
-// import { SwiperSlie } from "./SwiperSlide";
+import Drag from "./Drag";
 
 export const PortFolioBox = () => {
 
     return(
         <Container>
             <PortBox>
-                {/* <Drag /> */}
+                <Drag  />
             </PortBox>
         </Container>
     )
@@ -22,4 +21,8 @@ export const PortBox = styled.div`
     width: 50%;
     height: 70vh;
     margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;

@@ -6,7 +6,6 @@ export const PortFolioText = () => {
             <Project>
                 PROJECT
             </Project>
-            <div></div>
         </Container>
     )
 }
