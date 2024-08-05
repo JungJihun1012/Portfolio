@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion, wrap } from "framer-motion";
 import styled from "styled-components"
-import { DragImage } from "./DragImage";
+// import { DragImage } from "./DragImage";
 
 const variants = {
     enter: (direction: number) => {
@@ -32,7 +32,7 @@ const swipePower = (offset: number, velocity: number) => {
 const Drag: React.FC = () => {
 
     const [[page, direction], setPage] = useState([0, 0]);
-    const imageIndex = wrap(0, DragImage.length, page);
+    // const imageIndex = wrap(0, DragImage.length, page);
 
     const paginate = (newDirection: number) => {
         setPage([page + newDirection, newDirection]);
@@ -44,7 +44,7 @@ const Drag: React.FC = () => {
             <AnimatePresence initial={false} custom={direction}>
                 <Container
                     key={page}
-                    src={DragImage[imageIndex]}
+                    // src={DragImage[imageIndex]}
                     custom={direction}
                     variants={variants}
                     initial="enter"
