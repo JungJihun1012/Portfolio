@@ -26,24 +26,17 @@ export const Introduction: React.FC<IntroductionProps> = ({ scrollRef }) => {
             scrollRef.current?.forEach((ref, idx) => {
                 if (ref && ref.offsetTop - 180 < window.scrollY) {
                     navRef.current.forEach(ref => {
-                        if (ref) ref.classList.remove(' active');
+                        if (ref) ref.classList.remove('active');
                     });
-                    if (navRef.current[idx]) {
-                        navRef.current[idx]!.classList.add("active");
-                    }
+                    if (navRef.current[idx]) navRef.current[idx]!.classList.add("active");
                 }
             });
         };
 
-        const handleScroll = () => {
-            window.requestAnimationFrame(changeNavBtnStyle);
-        }
-
+        const handleScroll = () => window.requestAnimationFrame(changeNavBtnStyle);
         window.addEventListener("scroll", handleScroll);
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
+        return () => window.removeEventListener("scroll", handleScroll);
     }, [scrollRef]);
 
     return (
@@ -52,11 +45,11 @@ export const Introduction: React.FC<IntroductionProps> = ({ scrollRef }) => {
             <Content>
                 {Nav.map(({ idx, name }) => (
                     <Int
-                        key={idx}
+                        key={ idx }
                         ref={ref => (navRef.current[idx] = ref)}
                         onClick={() => setNavIndex(idx)}
                     >
-                        {name}
+                        { name }
                     </Int>
                 ))}
             </Content>
