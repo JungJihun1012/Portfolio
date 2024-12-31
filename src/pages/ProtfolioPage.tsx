@@ -1,45 +1,104 @@
-
 import styled from "styled-components";
+import { motion } from "framer-motion";
+import { MutableRefObject, useRef, useState } from "react";
+
+const nav = [
+    { idx: 0, name: "About me" },
+    { idx: 1, name: "Skills" },
+    { idx: 2, name: "Archiving" },
+    { idx: 3, name: "Projects" },
+    { idx: 4, name: "Career" },
+];
 
 const ProtfolioPage = () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const nav = [
-        { idx: 0, name: "About me" },
-        { idx: 1, name: "Skills" },
-        { idx: 2, name: "Archiving" },
-        { idx: 3, name: "Projects" },
-        { idx: 4, name: "Career" }
-    ]
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [isActive, setIsActive] = useState(false);
+    const aboutRef = useRef<HTMLDivElement>(null);
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
+    const handleScroll = (ref: MutableRefObject<HTMLDivElement | null>) => {
+        if(ref.current) {
+            window.scrollTo({ top: ref.current.offsetTop, behavior: 'smooth'});
+            setIsActive(true);
+            setTimeout(() => setIsActive(false), 1000);
+        }
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const slideAniamtion = {
+        initial: {x: -100, opacity: 0},
+        animate: {x: 0, opacity: 1},
+    }
+    const gradient = {
+        initial: { background: "linear-gradient(90deg, #ff9a9e, #fad0c4)" },
+        animate: {
+            background: [
+                "linear-gradient(90deg, #ff9a9e, #fad0c4)",
+                "linear-gradient(90deg, #a18cd1, #fbc2eb)",
+                "linear-gradient(90deg, #fad0c4, #ffd1ff)",
+            ],
+            transition: {
+                duration: 8,
+                repeat: Infinity,
+                repeatType: "reverse",
+            },
+        },
+    };
+
     return (
-        <Container>
-            {
-                nav.length == 0 ?
-                    <div>null</div>
-                    :
-                    <Navbar>
-                        <List>
-                            <StyleTitle>
-                                Portfolio
-                            </StyleTitle>
-                            {nav.map(({ idx, name }) => (
-                                <Menu key={idx}>
-                                    <StyleMenu>
-                                        {name}
-                                    </StyleMenu>
-                                </Menu>
-                            ))}
-                        </List>
-                    </Navbar>
-            }
+        <Container
+            initial="initial"
+            animate="animate"
+            variants={gradient}
+        >
+            {nav.length === 0 ? (
+                <div>null</div>
+            ) : (
+                <Navbar>
+                    <List>
+                        <StyleTitle>Portfolio</StyleTitle>
+                        {nav.map(({ idx, name }) => (
+                            <Menu key={idx}>
+                                <StyleMenu onClick={() => {
+                                    if(name === "About me") {
+                                        handleScroll(aboutRef);
+                                    }
+                                }}>{name}</StyleMenu>
+                            </Menu>
+                        ))}
+                    </List>
+                </Navbar>
+            )}
+            <StyleSection>
+                <Introduction>끊임 없이 성장하고 싶은 개발자 입니다.</Introduction>
+            </StyleSection>
+            <StyleArticle
+            ref={aboutRef}
+            initial="initial"
+            animate={isActive ? "animate" : "initial"}
+            variants={slideAniamtion}
+            >
+                <AboutMe>About me</AboutMe>
+            </StyleArticle>
         </Container>
-    )
-}
-const Container = styled.div`
+    );
+};
+
+const Container = styled(motion.div)`
     flex: 1;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
 `;
+
 const Navbar = styled.div`
     flex: 1;
+    background-color: #ffd4fa;
+    position: fixed;
+    width: 100vw;
 `;
+
 const List = styled.div`
     display: flex;
     width: 70%;
@@ -50,26 +109,54 @@ const List = styled.div`
     font-weight: bold;
     font-size: 24px;
     cursor: pointer;
+    color: #fff;
 `;
+
 const StyleTitle = styled.div`
-    transition: all .2s;
+    transition: all 0.2s;
     &:hover {
         text-decoration: underline;
-        color: #7a7878;
+        color: #a382a2;
     }
 `;
+
 const Menu = styled.div`
-    transition: all .2s;
+    transition: all 0.2s;
     &:hover {
         text-decoration: underline;
-        color: #7a7878;
+        color: #a382a2;
     }
 `;
+
 const StyleMenu = styled.div`
-    transition: all .2s;
+    transition: all 0.2s;
     &:hover {
         text-decoration: underline;
-        color: #7a7878;
+        color: #a382a2;
     }
+`;
+const StyleSection = styled.div`
+    position: relative;
+`;
+const Introduction = styled.div`
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    top: 7em;
+    left: 4em;
+`;
+const StyleArticle = styled(motion.div)`
+    position: relative;
+    top: 25em;
+    border-top: 1.5px solid #fac7fc;
+    height: 100px;
+`;
+const AboutMe = styled.div`
+    font-size: 26px;
+    text-align: center;
+    padding-top: 20px;
+    color: #fff;
+    font-weight: bold;
 `;
 export default ProtfolioPage;
