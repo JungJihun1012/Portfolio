@@ -28,6 +28,7 @@ const ProtfolioPage = () => {
         initial: {x: -100, opacity: 0},
         animate: {x: 0, opacity: 1},
     }
+    // gradient 백그라운드 애니메이션
     const gradient = {
         initial: { background: "linear-gradient(90deg, #ff9a9e, #fad0c4)" },
         animate: {
