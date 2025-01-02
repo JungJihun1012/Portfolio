@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { animate, motion } from "framer-motion";
 import { MutableRefObject, useRef, useState } from "react";
 
 const nav = [
@@ -25,8 +25,8 @@ const ProtfolioPage = () => {
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const slideAniamtion = {
-        initial: {x: -100, opacity: 0},
-        animate: {x: 0, opacity: 1},
+        initial: {y: 425, opacity: 1},
+        animate: {y: innerHeight / 2, opacity: 1},
     }
     // gradient 백그라운드 애니메이션
     const gradient = {
@@ -87,7 +87,7 @@ const ProtfolioPage = () => {
 const Container = styled(motion.div)`
     flex: 1;
     width: 100vw;
-    height: 100vh;
+    height: 200vh;
     position: absolute;
     top: 0;
     left: 0;
@@ -148,8 +148,8 @@ const Introduction = styled.div`
     left: 4em;
 `;
 const StyleArticle = styled(motion.div)`
-    position: relative;
-    top: 25em;
+    /* position: relative;
+    top: 25em; */
     border-top: 1.5px solid #fac7fc;
     height: 100px;
 `;
