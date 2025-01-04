@@ -1,6 +1,9 @@
 import styled from "styled-components";
-import { animate, motion } from "framer-motion";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { motion } from "framer-motion";
+import * as fa from '@fortawesome/free-solid-svg-icons';
 import { MutableRefObject, useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const nav = [
     { idx: 0, name: "About me" },
@@ -26,7 +29,7 @@ const ProtfolioPage = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const slideAniamtion = {
         initial: {y: 425, opacity: 1},
-        animate: {y: innerHeight / 2, opacity: 1},
+        animate: {y: 420, opacity: 1},
     }
     // gradient 백그라운드 애니메이션
     const gradient = {
@@ -79,6 +82,12 @@ const ProtfolioPage = () => {
             variants={slideAniamtion}
             >
                 <AboutMe>About me</AboutMe>
+                <Content>
+                    <Icon icon={fa.faUser} />
+                    <StyledText>정지훈</StyledText>
+                    <Icon icon={fa.faEnvelope}/>
+                    <StyledText>jihunjeong965@gmail.com</StyledText>
+                </Content>
             </StyleArticle>
         </Container>
     );
@@ -87,7 +96,7 @@ const ProtfolioPage = () => {
 const Container = styled(motion.div)`
     flex: 1;
     width: 100vw;
-    height: 200vh;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
@@ -159,5 +168,21 @@ const AboutMe = styled.div`
     padding-top: 20px;
     color: #fff;
     font-weight: bold;
+`;
+const Icon = styled(FontAwesomeIcon)<{$isActived? : boolean}>`
+    font-size: 25px;
+    color: ${({$isActived}) => $isActived ? "#facc5" : "#fad5e4cc4"};
+`;
+const Content = styled.div`
+    flex: 1;
+    display: flex;
+    width: 80%;
+    padding-top: 20px;
+    margin: 0 auto;
+`;
+const StyledText = styled.div`
+    padding-left: 15px;
+    font-size: 20px;
+    color: #fff;
 `;
 export default ProtfolioPage;
