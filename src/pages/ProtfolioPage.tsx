@@ -83,10 +83,14 @@ const ProtfolioPage = () => {
             >
                 <AboutMe>About me</AboutMe>
                 <Content>
-                    <Icon icon={fa.faUser} />
-                    <StyledText>정지훈</StyledText>
-                    <Icon icon={fa.faEnvelope}/>
-                    <StyledText>jihunjeong965@gmail.com</StyledText>
+                    <StyledText><StyleSpan>이름: </StyleSpan>정지훈</StyledText>
+                    <StyledText><StyleSpan>이메일: </StyleSpan>jihunjeong965@gmail.com</StyledText>
+                    <StyledText><StyleSpan>연락처: </StyleSpan>010-4744-5764</StyledText>
+                    <StyledText><StyleSpan>Instagram: </StyleSpan>jihun.__.072</StyledText>
+                </Content>
+                <Skills>Skills</Skills>
+                <Content>
+
                 </Content>
             </StyleArticle>
         </Container>
@@ -169,20 +173,30 @@ const AboutMe = styled.div`
     color: #fff;
     font-weight: bold;
 `;
-const Icon = styled(FontAwesomeIcon)<{$isActived? : boolean}>`
-    font-size: 25px;
-    color: ${({$isActived}) => $isActived ? "#facc5" : "#fad5e4cc4"};
+const Skills = styled.div`
+    font-size: 26px;
+    text-align: center;
+    padding-top: 20px;
+    color: #fff;
+    font-weight: bold;
 `;
 const Content = styled.div`
     flex: 1;
     display: flex;
+    flex-direction: column;
     width: 80%;
-    padding-top: 20px;
+    padding-top: 24px;
     margin: 0 auto;
 `;
 const StyledText = styled.div`
     padding-left: 15px;
     font-size: 20px;
+    font-weight: bold;
     color: #fff;
+`;
+const StyleSpan = styled.span`
+    color: #535252;
+    font-size: 23px;
+    font-weight: bold;
 `;
 export default ProtfolioPage;
