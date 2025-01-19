@@ -1,9 +1,7 @@
 import styled from "styled-components";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { motion } from "framer-motion";
-import * as fa from '@fortawesome/free-solid-svg-icons';
-import { MutableRefObject, useRef, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, {MutableRefObject, ReactNode, useRef, useState} from "react";
 
 const nav = [
     { idx: 0, name: "About me" },
@@ -13,7 +11,12 @@ const nav = [
     { idx: 4, name: "Career" },
 ];
 
-const ProtfolioPage = () => {
+interface ImageProps {
+    src: ReactNode,
+    alt: string,
+}
+
+const ProtfolioPage: React.FC<ImageProps> = (src: ImageProps) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [isActive, setIsActive] = useState(false);
     const aboutRef = useRef<HTMLDivElement>(null);
@@ -26,6 +29,7 @@ const ProtfolioPage = () => {
             setTimeout(() => setIsActive(false), 1000);
         }
     }
+    const images: ReactNode = "Images/vscode.png";
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const slideAniamtion = {
         initial: {y: 425, opacity: 1},
@@ -90,7 +94,9 @@ const ProtfolioPage = () => {
                 </Content>
                 <Skills>Skills</Skills>
                 <Content>
-
+                    <Box>
+                        <Image src={src.src} />
+                    </Box>
                 </Content>
             </StyleArticle>
         </Container>
@@ -173,6 +179,8 @@ const AboutMe = styled.div`
     color: #fff;
     font-weight: bold;
 `;
+const Box = styled.div``;
+const Image = styled.image``;
 const Skills = styled.div`
     font-size: 26px;
     text-align: center;
