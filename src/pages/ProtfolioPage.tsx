@@ -10,13 +10,7 @@ const nav = [
     { idx: 3, name: "Projects" },
     { idx: 4, name: "Career" },
 ];
-
-interface ImageProps {
-    src: ReactNode,
-    alt: string,
-}
-
-const ProtfolioPage: React.FC<ImageProps> = (src: ImageProps) => {
+const ProtfolioPage = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [isActive, setIsActive] = useState(false);
     const aboutRef = useRef<HTMLDivElement>(null);
@@ -29,7 +23,6 @@ const ProtfolioPage: React.FC<ImageProps> = (src: ImageProps) => {
             setTimeout(() => setIsActive(false), 1000);
         }
     }
-    const images: ReactNode = "Images/vscode.png";
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const slideAniamtion = {
         initial: {y: 425, opacity: 1},
@@ -95,7 +88,7 @@ const ProtfolioPage: React.FC<ImageProps> = (src: ImageProps) => {
                 <Skills>Skills</Skills>
                 <Content>
                     <Box>
-                        <Image src={src.src} />
+                        
                     </Box>
                 </Content>
             </StyleArticle>
@@ -180,7 +173,6 @@ const AboutMe = styled.div`
     font-weight: bold;
 `;
 const Box = styled.div``;
-const Image = styled.image``;
 const Skills = styled.div`
     font-size: 26px;
     text-align: center;
