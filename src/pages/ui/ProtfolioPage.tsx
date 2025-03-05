@@ -2,6 +2,8 @@ import styled from "styled-components";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { motion } from "framer-motion";
 import React, {MutableRefObject, ReactNode, useRef, useState} from "react";
+import { Typography } from "../../shared/ui/Typography";
+import * as S from './styled';
 
 const nav = [
     { idx: 0, name: "About me" },
@@ -52,7 +54,11 @@ const ProtfolioPage = () => {
             variants={gradient}
         >
             {nav.length === 0 ? (
-                <div>null</div>
+                <S.Content>
+                    <S.Container>
+                        <S.Text>이 페이지는 오류가 뜬 화면입니다.</S.Text>
+                    </S.Container>
+                </S.Content>
             ) : (
                 <Navbar>
                     <List>
@@ -70,7 +76,7 @@ const ProtfolioPage = () => {
                 </Navbar>
             )}
             <StyleSection>
-                <Introduction>끊임 없이 성장하고 싶은 개발자 입니다.</Introduction>
+                <Introduction >끊임 없이 성장하고 싶은 개발자 입니다.</Introduction>
             </StyleSection>
             <StyleArticle
             ref={aboutRef}

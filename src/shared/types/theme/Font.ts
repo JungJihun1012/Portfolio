@@ -1,6 +1,7 @@
 export const font = {
     LargeTitle: "35px",
-    MiddleTitle: "26px",
-    Title: "24px",
+    MiddleTitle: "30px",
+    Title: "26px",
+    Title2: "24px",
     Weight: "bold",
 }
