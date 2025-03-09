@@ -1,8 +1,7 @@
 import styled from "styled-components";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { motion } from "framer-motion";
-import React, {MutableRefObject, ReactNode, useRef, useState} from "react";
-import { Typography } from "../../shared/ui/Typography";
+import {MutableRefObject, useRef, useState} from "react";
 import * as S from './styled';
 
 const nav = [
@@ -13,11 +12,9 @@ const nav = [
     { idx: 4, name: "Career" },
 ];
 const ProtfolioPage = () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [isActive, setIsActive] = useState(false);
     const aboutRef = useRef<HTMLDivElement>(null);
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
     const handleScroll = (ref: MutableRefObject<HTMLDivElement | null>) => {
         if(ref.current) {
             window.scrollTo({ top: ref.current.offsetTop, behavior: 'smooth'});
@@ -25,12 +22,10 @@ const ProtfolioPage = () => {
             setTimeout(() => setIsActive(false), 1000);
         }
     }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const slideAniamtion = {
         initial: {y: 425, opacity: 1},
         animate: {y: 420, opacity: 1},
     }
-    // gradient 백그라운드 애니메이션
     const gradient = {
         initial: { background: "linear-gradient(90deg, #ff9a9e, #fad0c4)" },
         animate: {
