@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { motion } from "framer-motion";
 import {MutableRefObject, useRef, useState} from "react";
 import * as S from './styled';
