@@ -1,7 +1,6 @@
-import styled from "styled-components";
-import { motion } from "framer-motion";
 import {MutableRefObject, useRef, useState} from "react";
-import * as S from './styled';
+import * as S from './styled/ErrorStyled';
+import * as F from './styled/FrontStyled';
 
 const nav = [
     { idx: 0, name: "About me" },
@@ -42,7 +41,7 @@ const ProtfolioPage = () => {
     };
 
     return (
-        <Container
+        <F.Container
             initial="initial"
             animate="animate"
             variants={gradient}
@@ -54,149 +53,42 @@ const ProtfolioPage = () => {
                     </S.Container>
                 </S.Content>
             ) : (
-                <Navbar>
-                    <List>
-                        <StyleTitle>Portfolio</StyleTitle>
+                <F.Navbar>
+                    <F.List>
+                        <F.StyleTitle>Portfolio</F.StyleTitle>
                         {nav.map(({ idx, name }) => (
-                            <Menu key={idx}>
-                                <StyleMenu onClick={() => {
+                            <F.Menu key={idx}>
+                                <F.StyleMenu onClick={() => {
                                     if(name === "About me") {
                                         handleScroll(aboutRef);
                                     }
-                                }}>{name}</StyleMenu>
-                            </Menu>
+                                }}>{name}</F.StyleMenu>
+                            </F.Menu>
                         ))}
-                    </List>
-                </Navbar>
+                    </F.List>
+                </F.Navbar>
             )}
-            <StyleSection>
-                <Introduction >끊임 없이 성장하고 싶은 개발자 입니다.</Introduction>
-            </StyleSection>
-            <StyleArticle
+            <F.StyleSection>
+                <F.Introduction >끊임 없이 성장하고 싶은 개발자 입니다.</F.Introduction>
+            </F.StyleSection>
+            <F.StyleArticle
             ref={aboutRef}
             initial="initial"
             animate={isActive ? "animate" : "initial"}
             variants={slideAniamtion}
             >
-                <AboutMe>About me</AboutMe>
-                <Content>
-                    <StyledText><StyleSpan>이름: </StyleSpan>정지훈</StyledText>
-                    <StyledText><StyleSpan>이메일: </StyleSpan>jihunjeong965@gmail.com</StyledText>
-                    <StyledText><StyleSpan>연락처: </StyleSpan>010-4744-5764</StyledText>
-                    <StyledText><StyleSpan>Instagram: </StyleSpan>jihun.__.072</StyledText>
-                </Content>
-                <Skills>Skills</Skills>
-                <Content>
-                    <Box>
-                        
-                    </Box>
-                </Content>
-            </StyleArticle>
-        </Container>
+                <F.AboutMe>About me</F.AboutMe>
+                <F.Content>
+                    <F.StyledText><F.StyleSpan>이름: </F.StyleSpan>정지훈</F.StyledText>
+                    <F.StyledText><F.StyleSpan>이메일: </F.StyleSpan>jihunjeong965@gmail.com</F.StyledText>
+                    <F.StyledText><F.StyleSpan>연락처: </F.StyleSpan>010-4744-5764</F.StyledText>
+                    <F.StyledText><F.StyleSpan>Instagram: </F.StyleSpan>jihun.__.072</F.StyledText>
+                </F.Content>
+                <F.Skills>Skills</F.Skills>
+                <
+            </F.StyleArticle>
+        </F.Container>
     );
 };
 
-const Container = styled(motion.div)`
-    flex: 1;
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-`;
-
-const Navbar = styled.div`
-    flex: 1;
-    background-color: #ffd4fa;
-    position: fixed;
-    width: 100vw;
-`;
-
-const List = styled.div`
-    display: flex;
-    width: 70%;
-    margin: 0 auto;
-    height: 65px;
-    align-items: center;
-    justify-content: space-around;
-    font-weight: bold;
-    font-size: 24px;
-    cursor: pointer;
-    color: #fff;
-`;
-
-const StyleTitle = styled.div`
-    transition: all 0.2s;
-    &:hover {
-        text-decoration: underline;
-        color: #a382a2;
-    }
-`;
-
-const Menu = styled.div`
-    transition: all 0.2s;
-    &:hover {
-        text-decoration: underline;
-        color: #a382a2;
-    }
-`;
-
-const StyleMenu = styled.div`
-    transition: all 0.2s;
-    &:hover {
-        text-decoration: underline;
-        color: #a382a2;
-    }
-`;
-const StyleSection = styled.div`
-    position: relative;
-`;
-const Introduction = styled.div`
-    font-size: 30px;
-    font-weight: bold;
-    color: #fff;
-    position: absolute;
-    top: 7em;
-    left: 4em;
-`;
-const StyleArticle = styled(motion.div)`
-    /* position: relative;
-    top: 25em; */
-    border-top: 1.5px solid #fac7fc;
-    height: 100px;
-`;
-const AboutMe = styled.div`
-    font-size: 26px;
-    text-align: center;
-    padding-top: 20px;
-    color: #fff;
-    font-weight: bold;
-`;
-const Box = styled.div``;
-const Skills = styled.div`
-    font-size: 26px;
-    text-align: center;
-    padding-top: 20px;
-    color: #fff;
-    font-weight: bold;
-`;
-const Content = styled.div`
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    padding-top: 24px;
-    margin: 0 auto;
-`;
-const StyledText = styled.div`
-    padding-left: 15px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-`;
-const StyleSpan = styled.span`
-    color: #535252;
-    font-size: 23px;
-    font-weight: bold;
-`;
 export default ProtfolioPage;

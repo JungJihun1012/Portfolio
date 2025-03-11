@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { color } from "../../shared/types/theme/Color";
-import { font } from "../../shared/types/theme/Font";
+import { color } from "../../../shared/types/theme/Color";
+import { font } from "../../../shared/types/theme/Font";
 
 export const Content = styled.div`
     display: flex;
