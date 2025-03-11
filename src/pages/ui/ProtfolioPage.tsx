@@ -85,7 +85,7 @@ const ProtfolioPage = () => {
                     <F.StyledText><F.StyleSpan>Instagram: </F.StyleSpan>jihun.__.072</F.StyledText>
                 </F.Content>
                 <F.Skills>Skills</F.Skills>
-                <
+                
             </F.StyleArticle>
         </F.Container>
     );
