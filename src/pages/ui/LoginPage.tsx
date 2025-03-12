@@ -9,6 +9,7 @@ const text = {
   register: '회원가입'
 }
 const LoginPage: React.FC = () => {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const dispatch: any = useDispatch();
   const navigate: any = useNavigate();
 
@@ -25,7 +26,7 @@ const LoginPage: React.FC = () => {
         navigate('/');
       } else {
         alert('error');
-      };
+      }
     });
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

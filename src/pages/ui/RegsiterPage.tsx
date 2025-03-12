@@ -5,6 +5,7 @@ import { registerUser } from "../../actions/user_actions";
 import * as S from './styled/RegisterStyled';
 
 export const RegisterPage = () => {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     const dispatch: any = useDispatch();
     const navigate: any = useNavigate();
 
@@ -31,7 +32,7 @@ export const RegisterPage = () => {
                 navigate("/login");
             } else {
                 alert("Error");
-            };
+            }
         });
     };
     return(
