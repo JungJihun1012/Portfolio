@@ -5,7 +5,7 @@ import { GlobalStyles } from './GlobalStyles.ts';
 import { Router } from './Router.tsx';
 import { theme } from './theme/index.ts';
 
-export function Provider() {
+export function ReactProvider() {
     const queryClient = new QueryClient;
     return (
         <>
