@@ -4,7 +4,7 @@ import { AUTH_USER, LOGIN_USER, REGISTER_USER } from "./type"
 export const registerUser = (dataToSubmit: {email: string, password: string}) => {
   return async (dispatch: (arg0: { type: string; payload: any; }) => void) => {
     try {
-      const response = await fetch("localhost/3000/api/auth/register", {
+      const response = await fetch(`http://localhost:8000/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type' : 'application/json'
@@ -30,7 +30,7 @@ export const registerUser = (dataToSubmit: {email: string, password: string}) =>
 export const loginUser = (dataToSubmit: {email: string, password: string}) => {
   return async (dispatch: (arg0: {type: string, payload: any}) => void) => {
     try {
-      const response = await fetch('/localhost:3000/api/auth/login', {
+      const response = await fetch(`http://localhost:8000/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type' : 'application'
