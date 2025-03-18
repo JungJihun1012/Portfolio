@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as S from './styled/LoginStyled';
-import { loginUser } from "../../actions/user_actions";
+import { loginUser } from "../../actions/user_action/user_login_action";
 
 const text = {
   login: '로그인',

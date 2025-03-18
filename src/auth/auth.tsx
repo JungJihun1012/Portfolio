@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../actions/user_actions";
+import { auth } from "../actions/user_action/auth";
 
 const withAuthChild = (
   SpecifiComponent: React.FC,

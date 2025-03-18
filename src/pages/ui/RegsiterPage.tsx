@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom";
-import { registerUser } from "../../actions/user_actions";
+import { registerUser } from "../../actions/user_action/user_register_action";
 import * as S from './styled/RegisterStyled';
 
 export const RegisterPage = () => {
